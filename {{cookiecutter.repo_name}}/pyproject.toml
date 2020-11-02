@@ -1,0 +1,26 @@
+[build-system]
+# Minimum requirements for the build system to execute. (see https://www.python.org/dev/peps/pep-0518/)
+requires = ["setuptools", "wheel"]  # PEP 508 specifications.
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+target-version = ['py37']
+
+[pycalver]
+
+current_version = "v20200501.0001-alpha"
+version_pattern = "v{year}{month}{dom}{build}-{release_tag}"
+commit = true
+tag = true
+push = true
+
+[pycalver.file_patterns]
+"pyproject.toml" = [
+        'current_version = "v{year}{month}{dom}{build}-{release_tag}"'
+    ]
+"setup.py" = [
+    '__version__ = "{year}{month}{dom}.{BID}{pep440_tag}"'
+]
+"{{ cookiecutter.package_name }}/__init__.py" = [
+    '__version__ = "{year}{month}{dom}.{BID}{pep440_tag}"'
+]

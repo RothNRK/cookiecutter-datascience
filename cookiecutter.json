@@ -1,0 +1,9 @@
+{
+  "full_name": "Noel Kippers",
+  "email": "noel.kippers@gmail.com",
+  "github_username": "RothNRK",
+  "repo_name": "foo-bar",
+  "package_name": "{{ cookiecutter.repo_name.lower().replace(' ', '_').replace('-', '_') }}",
+  "description": "Python Boilerplate contains all the boilerplate you need to create a Python package.",
+  "git_url": "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}"
+}
