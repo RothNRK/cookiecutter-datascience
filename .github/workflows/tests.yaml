@@ -1,0 +1,38 @@
+name: Python test
+
+on:
+  push:
+  pull_request:
+    branches: [main]
+jobs:
+  checks:
+    name: Lint Code Base
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Lint Code Base
+        uses: github/super-linter@v3
+        env:
+          VALIDATE_ALL_CODEBASE: false
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: [3.7, 3.8]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install package
+        run: pip install .[dev]
+      - name: Install Tox and any other packages
+        run: pip install tox
+      - name: Run Tox
+        run: tox -e py
