@@ -3,6 +3,6 @@
 import {{ cookiecutter.package_name }}
 
 
-def test_foo():
-    """Blank test"""
-    assert True
+def test_version_exists():
+    """Assert that a version exists"""
+    assert {{ cookiecutter.package_name }}
