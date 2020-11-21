@@ -10,7 +10,7 @@ Install the package in development mode in your environment using:
 pip install -e '.[dev]'
 ```
 
-# Testing
+## Testing
 
 For making sure that the application works as expected, we have several layers of testing. These layers are explained in the [Practical Test Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html) of Martin Fowler.
 
@@ -23,10 +23,10 @@ Above is the modified testing pyramid for Data `{Science,Engineering}`.
 For performing static analysis we use [Pre-Commit](https://calmcode.io/pre-commit/the-problem.html). Pre-commit allows us to easily run a suite of tests, as defined in the [.pre-commit-config.yaml](.pre-commit-config.yaml) in the project. By default, the cookie cutter ships with a couple of plugins:
 
 * Trivial checks:
-    * The encoding of the files
-    * If it is valid Python in the files
-    * If the YAML files are nicely formatted
-    * The code is free of debug statements
+  * The encoding of the files
+  * If it is valid Python in the files
+  * If the YAML files are nicely formatted
+  * The code is free of debug statements
 * [**Flake8**](https://pypi.org/project/flake8/) is a Python library that wraps PyFlakes, pycodestyle and Ned Batchelder's McCabe script. It is a great toolkit for checking your code base against coding style ([PEP 8](https://www.python.org/dev/peps/pep-0008/), programming errors (like “library imported but unused” and “Undefined name”) and to check complexity.
 * [**Black**](https://github.com/psf/black) is the Python code formatter and makes sure that we format our Python code in the same way. By using it, you agree to cede control over minutiae of hand-formatting. In return, Black gives you speed, determinism, and freedom from pycodestyle nagging about formatting. You will save time and mental energy for more important matters.
 * [**MyPy**](https://github.com/python/mypy) is an optional static type checker for Python. You can add type hints ([PEP 484](https://www.python.org/dev/peps/pep-0484/)) to your Python programs, and use mypy to type check them statically. Find bugs in your programs without even running them!

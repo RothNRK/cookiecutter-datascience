@@ -6,7 +6,7 @@
 Project Structure
 -----------------
 
-```
+``` python
 ├── .flake8                         <- Configuration for style and quality checks by flake8.
 │
 ├── .gitignore                      <- Specifies files which git should ignore. E.g. makes sure you don't
